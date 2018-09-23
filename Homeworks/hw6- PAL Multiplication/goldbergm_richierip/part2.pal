@@ -1,0 +1,56 @@
+/ @Max Goldberg
+/ @Peter Richieri 
+/ HW6 part2
+
+*172
+    counter, -14
+    and1, 1
+    op1, 2501      /First operand
+    op2, 401       /Second operand
+    resultUpper, 0      /Result upper half
+    resultLower, 0      /Result lower half
+
+/ Start of code
+*200
+    / Clear everything
+    CLA CLL
+    DCA resultUpper
+    DCA resultLower
+    
+    / Add op1 to result 'counter' times    
+    loop,
+    / while (counter != 0)
+        / Part 2a:       
+        TAD op2
+        AND and1    /op2 is odd
+        SNA         / Shift if accumulator is even
+        JMP shift
+        
+        / Add op1 to resultUpper
+        CLA
+        TAD op1
+        TAD resultUpper
+        DCA resultUpper
+        
+        / Part 2b:        
+        shift,        
+        / Shift op2 to the right (clearing link)
+        TAD op2
+        RAR
+        CLL
+        DCA op2
+        
+        / Part 2c:
+        / Shift entire product right 1
+        TAD resultUpper
+        RAR
+        DCA resultUpper
+        
+        TAD resultLower
+        RAR
+        DCA resultLOWER
+
+        / Quit if counter = 0        
+        ISZ counter
+        JMP loop
+        HLT

@@ -1,0 +1,61 @@
+/ @Max Goldberg
+/ @Peter Richieri 
+/ HW6 part1
+
+*173
+    and1, 1
+    op1, 2000      /First operand
+    op2, 2          /Second operand
+    result, 0       /Result
+    overflow, 0     /Overflow
+
+/ Start of code
+*200
+    / Clear everything
+    CLA CLL
+    DCA result
+    DCA overflow
+    
+    / Add op1 to result 'counter' times    
+    loop,
+    / while (op2 != 0)
+        TAD op2
+        SNA
+        HLT
+        
+        AND and1    / op2 is odd so add it
+        SNA         / Go to shift if accumulator is 0
+        JMP shift
+        
+        / result += op1
+        CLA
+        TAD op1
+        TAD result
+        
+        / Overflow occurs if link is 1, jump there
+        SZL
+        JMP error
+        
+        DCA result
+        
+        shift,        
+        / Shift op2 to the right (clearing link)
+        TAD op2
+        RAR
+        CLL
+        DCA op2
+ 
+        / Shift op1 to the left       
+        TAD op1
+        RAL
+        DCA op1
+
+        JMP loop
+    
+    / Overflow was detected, set '177' to 1
+    error,
+    CLA
+    IAC
+    DCA overflow
+    HLT
+    

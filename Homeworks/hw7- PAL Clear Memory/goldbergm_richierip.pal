@@ -1,0 +1,21 @@
+/ Max Goldberg, Peter Richieri HW 7
+/ We manually clear slots 2-7, and then jump to the beginning of our program.
+/ Any instructions we write our program will clear (except for instruction 0001)
+
+
+*0000
+DCA I counter / This clears whatever is at the address of 0010 
+JMP 0000 / Only line not erased by our program.
+
+*0010
+counter, 11 / This increments and wraps around at 7777, clearing instruction 0000.
+
+*0200 
+CLL CLA  / Clear the accumulator to 0
+DCA 2    / Clear slots 2-7 because our counter never reaches those
+DCA 3
+DCA 4
+DCA 5
+DCA 6
+DCA 7
+JMP 0000 / Jump to start of program

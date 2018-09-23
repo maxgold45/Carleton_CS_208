@@ -1,0 +1,22 @@
+Max Goldberg
+
+1:
+   a) 0x40c0208d
+   b) 0100 0000 1100 0000 0010 0000 1000 1101
+   c) 1,086,333,069
+   d) No
+   e) li $t1, 0x20b36080
+       li $t2, 0x200cc00d
+       add $s0, $t1, $t2
+
+2:
+   a) 0x80c0208d
+   b) 1000 0000 1100 0000 0010 0000 1000 1101
+   c) 2,160,074,893
+   d) Yes, -2,134,892,403
+   e) Arithmetic overflow
+   f) This time it showed the correct result (0x80c0208d). The "u" stands for unsigned
+
+3:
+   a) 0x120c0208d
+   b) 0x20c0208d... The addu instruction doesn't cause an error when there is overflow. The add instruction does cause overflow. My speculation is that this allows the programmer to decide what to do if there is overflow (cause an error, or just ignore it). 
