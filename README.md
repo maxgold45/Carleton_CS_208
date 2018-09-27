@@ -2,7 +2,7 @@
 
 In this class I learned to write simple programs in both MIPS and PAL assembly languages, and compared these 2 languages in efficiency and design. I also learned about the organization and function of the basic components of computer hardware, from interactions between major components such as RAM with the CPU, to detailed descriptions of the logic circuits comprising each subcomponent of the basic datapath. - paraphrased from our Course Syllabus.
 
-This course culminated with a final project (homeworks 9 and 10) creating a functioning MIPS datapath and pipeline in logisim.
+<b>This course culminated with a final project (homeworks 9 and 10) creating a functioning MIPS datapath and pipeline in logisim. </b>
 
 This repository will include programming assignments from my Computer Organization and Architecture class. We programmed in PAL using a PDP8 simulator, in MIPS using MARS and Logisim to create circuits and virtual computers.
 
